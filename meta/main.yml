@@ -1,0 +1,14 @@
+---
+galaxy_info:
+        author: zabenno
+        description: Automated containerized deployment of DynDNS using NoIP.
+        platforms:
+                - name: Ubuntu
+                  versions:
+                          - "18.04"
+        galaxy_tags:
+                - NoIP
+                - DynDNS
+                - docker
+        dependencies:
+                - docker_base
