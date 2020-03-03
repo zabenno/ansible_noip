@@ -3,7 +3,9 @@
 This role creates a container and mounts a persistent configuration file to keep the DNS response for the IP address up to date. It requires the default login credentials to be overridden in order to function.
 
 Paramters to be overridden:
+
 noip_username
+
 noip_password
 
 # Assumptions
