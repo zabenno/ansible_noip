@@ -1,3 +1,6 @@
 ---
+dockerfile_dir: "/var/cache/docker_files/noip/"
+base_image: "ubuntu"
+refresh_intervals: 2
 noip_username: "testusername"
 noip_password: "testpassword"
