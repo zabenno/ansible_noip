@@ -1,0 +1,41 @@
+---
+#Creating the docker image
+- name: Ensure directory exists.
+  file:
+          state: directory
+          path: "{{ dockerfile_dir }}"
+          mode: '0644'
+
+- name: Transfer Dockerfile
+  copy:
+          src: Dockerfile
+          dest: "{{ dockerfile_dir }}Dockerfile"
+          mode: '0644'
+
+- name: Transfer script
+  copy:
+          src: noip.sh
+          dest: /var/cache/noip.sh
+          mode: '0655'
+
+- name: Pull base docker image.
+  docker_image:
+          name: "{{ base_image }}"
+          source: pull
+
+- name: Create noip image
+  docker_image:
+          name: noip:latest
+          build:
+                  path: "{{ dockerfile_dir }}"
+          source: build
+
+- name: start container
+  docker_container:
+          name: downloader_container
+          image: downloader:latest
+          state: started
+          env:
+                  REFRESH_INTERVAL: "{{ refresh_intervals }}"
+                  USERNAME: "{{ noip_username }}"
+                  PASSWORD: "{{ noip_password }}"
