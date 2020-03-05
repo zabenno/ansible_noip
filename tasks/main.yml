@@ -33,7 +33,7 @@
 - name: start container
   docker_container:
           name: noip_container
-          image: downloader:latest
+          image: noip:latest
           state: started
           env:
                   REFRESH_INTERVAL: "{{ refresh_intervals }}"
