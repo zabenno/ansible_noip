@@ -32,7 +32,7 @@
 
 - name: start container
   docker_container:
-          name: downloader_container
+          name: noip_container
           image: downloader:latest
           state: started
           env:
