@@ -15,7 +15,7 @@ RUN cp /usr/local/src/*/noip2 /usr/local/bin/noip2
 RUN rm -rf /usr/local/src/noip*
 
 #Add sleep script so container doesn't die.
-COPY /var/cache/noip.sh /usr/local/bin/noip.sh
+COPY noip.sh /usr/local/bin/noip.sh
 RUN chmod 555 /usr/local/bin/noip.sh
 
 #Start by launching the service.

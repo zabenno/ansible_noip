@@ -15,7 +15,7 @@
 - name: Transfer script
   copy:
           src: noip.sh
-          dest: /var/cache/noip.sh
+          dest: "{{ dockerfile_dir }}noip.sh"
           mode: '0655'
 
 - name: Pull base docker image.
